@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Zoe",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ItfSz7h9ElbHs5zigZ0l6xHFkViDqff5AhDdV_rMxxVjjtmllhP2JRv9AEE&usqp=CAc",
+      "price": "4",
+      "id": 8
     }
   ]
 }
