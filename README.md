@@ -1,3 +1,5 @@
+walkthrough @ https://youtu.be/HFwAZnBJqBs
+
 # React Mock Code Challenge: Plantsy
 
 ## Demo

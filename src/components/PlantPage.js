@@ -79,10 +79,12 @@ function PlantPage() {
 			
 			const caseSearch = search.toLowerCase()
 			
-			return plants.filter(plant => {
+			const byName = plant => {
 				const caseName = plant.name.toLowerCase()
 				return caseName.includes(caseSearch)
-			})
+			}
+
+			return plants.filter( byName )
 		} else {
 			return plants
 		}
