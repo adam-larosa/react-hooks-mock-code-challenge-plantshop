@@ -2,7 +2,7 @@ import React from "react";
 import PlantCard from "./PlantCard";
 
 
-function PlantList({ plants }) {
+function PlantList({ plants, changePriceOfPlant, killPlant }) {
 
 
 
@@ -10,7 +10,7 @@ function PlantList({ plants }) {
     <ul className="cards">
 
       {plants.map( plantObj => 
-        <PlantCard key={plantObj.id} plant={plantObj} /> )}
+        <PlantCard killPlant={killPlant} changePriceOfPlant={changePriceOfPlant} key={plantObj.id} plant={plantObj} /> )}
 
     </ul>
   );

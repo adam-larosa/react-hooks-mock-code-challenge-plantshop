@@ -1,34 +1,49 @@
 import React, { useState } from "react";
 
-function PlantCard({ plant }) {
+function PlantCard({ plant, changePriceOfPlant, killPlant }) {
 
   const [inStock, setIsInStock] = useState(true)
   const [showChange, setShowChange] = useState(false)
+  
+  const changeAvailability = () => setIsInStock( !inStock )
 
-  const [newPrice, setNewPrice] = useState()
 
-  const changeAvailability = () => {
+  const [newPrice, setNewPrice] = useState(plant.price)
 
-    setIsInStock( !inStock )
 
+
+  const changePriceInState = () => {
+    
+    changePriceOfPlant(plant, newPrice)
+  
   }
+
+  const destroyPlant = () => {
+    killPlant(plant)
+  }
+  
 
   return (
     <li className="card">
       <img src={plant.image} alt={"plant name"} />
       <h4>{plant.name}</h4>
-      <p>
+      <div>
         {showChange ?  
-          <div>
-            <input placeholder={plant.price} type="number" />
-            <button>CHANGE IT!</button>
-          </div> : 
+          
+          <p>
+            <input onChange={e => setNewPrice(e.target.value)} 
+              value={newPrice} placeholder={plant.price} type="number" />
+            
+            <button onClick={changePriceInState}>CHANGE IT!</button>
+          </p>
+           : 
           `Price: ${plant.price}` 
+          
         }
         <button onClick={() => setShowChange(!showChange)}>
           {showChange ? "go back": "change price" }
         </button>
-      </p>
+      </div>
 
 
       {inStock ? (
@@ -38,7 +53,7 @@ function PlantCard({ plant }) {
       )}
 
 
-
+        <button onClick={destroyPlant}>kill plant</button>
     </li>
   );
 }

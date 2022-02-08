@@ -28,12 +28,46 @@ function PlantPage() {
   }) 
    
 
+  const changePriceOfPlant = (plant, newPrice) => {
+
+    const index = plants.findIndex( pObj => pObj.id === plant.id)
+    const newPlants = [...plants]
+    newPlants[index].price = newPrice
+    setPlants(newPlants)
+
+    // const newPlants = 
+    //   plants.map(pObj => pObj.id = plant.id ? {...pObj, price: newPrice} : pObj)
+    // setPlants( newPlants )
+
+
+    fetch(`http://localhost:6001/plants/${plant.id}`, {
+      method: 'PATCH', 
+      headers: {'Content-Type': 'application/json'}, 
+      body: JSON.stringify({
+
+        price: newPrice
+
+      })
+    })
+  
+  
+  }
+
+  const killPlant = plant => {
+
+    setPlants( plants.filter(p => p.id != plant.id) )
+
+    fetch(`http://localhost:6001/plants/${plant.id}`, {
+      method: 'DELETE'
+    })
+  }
+
   return (
     <main>
       <NewPlantForm addPlantToState={addPlantToState} />
       <Search changeSearchValue={changeSearchValue} />
       
-      <PlantList plants={searchedPlants} />
+      <PlantList killPlant={killPlant} changePriceOfPlant={changePriceOfPlant} plants={searchedPlants} />
     </main>
   );
 }
