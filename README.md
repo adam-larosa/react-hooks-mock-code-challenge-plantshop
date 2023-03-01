@@ -4,7 +4,7 @@
 
 Use this gif as an example of how the app should work.
 
-![Demo GIF](https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-mock-code-challenge-plantshop/master/demo.gif)
+![Demo GIF](https://curriculum-content.s3.amazonaws.com/phase-2/react-hooks-mock-code-challenge-plantshop/plantsy_demo.gif)
 
 ## Instructions
 
@@ -34,8 +34,9 @@ The base URL for your backend is: `http://localhost:6001`
 As a user:
 
 1. When the app starts, I can see all plants.
-2. I can add a new plant to the page by submitting the form.
-3. I can mark a plant as "sold out".
+2. I can add a new plant to the page by submitting the form **as well as post the new transaction to the backend
+  API for persistence**.
+3. I can mark a plant as "sold out", **no persistance needed**.
 4. I can search for plants by their name and see a filtered list of plants.
 
 ### Endpoints for Core Deliverables
